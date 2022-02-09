@@ -1,0 +1,11 @@
+database:
+  host: ''
+email:
+  user: ''
+  pass: ''
+  service: ''
+  base_url: 127.0.0.1
+  port: 3001
+  token_key: ''
+  password_reset_key: ''
+
