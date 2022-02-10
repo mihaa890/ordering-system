@@ -4,7 +4,7 @@ import {STORAGE_KEYS} from '../utils/constants'
 
     function RequireAuth({children}) {
 
-        const isAuthenticated = localStorage.getItem(STORAGE_KEYS.USER_KEY);      
+        const isAuthenticated = localStorage.getItem(STORAGE_KEYS.TOKEN_KEY);      
         return isAuthenticated ? children : <Navigate to="/login" replace />;
       }
 

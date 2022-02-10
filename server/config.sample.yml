@@ -1,11 +1,11 @@
 database:
-  host: ''
+  host: 'YOUR_HOST'
 email:
-  user: ''
-  pass: ''
-  service: ''
+  user: 'YOUR_EMAIL'
+  pass: 'YOUR_PASSWORD'
+  service: 'SERVICE'
   base_url: 127.0.0.1
   port: 3001
-  token_key: ''
-  password_reset_key: ''
+  token_key: 'RANDOM_STRING'
+  password_reset_key: 'RANDOM_STRING'
 

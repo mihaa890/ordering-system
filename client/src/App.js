@@ -11,6 +11,8 @@ import {Tables} from './components/Tables'
 import RequireAuth from './guard/RequireAuth';
 import { ResetPassword } from './account/ResetPassword';
 import { ForgotPassword } from './account/ForgotPassword';
+import { FreeTables } from './components/FreeTables';
+import { Order } from './components/Order';
 
 class App extends Component {
 
@@ -25,6 +27,8 @@ class App extends Component {
             <Route path='/forgot-password' exact={true} element={<ForgotPassword/>} />
             <Route path='/reset-password/:token' exact={true} element={ <ResetPassword/> }/>
             <Route path='/tables' exact={true} element={ <RequireAuth> <Tables/> </RequireAuth> } /> 
+            <Route path='/freeTables' exact={true} element={ <RequireAuth><FreeTables/></RequireAuth> }/>
+            <Route path='/order' exact={true} element={<RequireAuth><Order/></RequireAuth>}/>
 
         </Routes>
         </BrowserRouter>

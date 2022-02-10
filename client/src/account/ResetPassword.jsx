@@ -5,8 +5,6 @@ import { useEffect } from "react";
 import { Formik, Field, Form } from 'formik';
 import './ResetPassword.css'
 
-
-
 export const ResetPassword = () => {
 
     const navigate = useNavigate()
@@ -61,7 +59,7 @@ export const ResetPassword = () => {
     }
 
     return <Formik initialValues={{ pass: '', confirmPass: '' }} onSubmit={handleSubmit}>
-        {({ errors, touched, isSubmitting }) => (
+
             <div className="container">
                 <Form>
                     <h3 className="card-header">Reset password</h3>
@@ -80,7 +78,7 @@ export const ResetPassword = () => {
 
                 </Form>
             </div>
-        )}
+        )
     </Formik>
 
 }

@@ -16,3 +16,17 @@ exports.createMenu = async ( req, res) =>{
 
 }
 
+exports.getAll = async(req, res) => {
+
+    Menu.find({}).then(function (items) {
+        res.status(200).json(items)
+    })
+}
+
+exports.getById = async(req, res) => {
+    const id = req.params.id; 
+        Menu.find({_id : id }).then(function (item){
+            res.status(200).json(item)
+        })
+}
+

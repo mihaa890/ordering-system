@@ -1,6 +1,6 @@
 const { Table } = require("../models/tableModel")
 
-exports.createTable = async (req, res) => {
+exports.createTable = async(req, res) => {
 
     try {
         table = await new Table({
@@ -10,11 +10,25 @@ exports.createTable = async (req, res) => {
         }).save();
 
         res.status(200).json(table)
-    }
-    catch (error) {
+    } catch (error) {
         console.log(error)
     }
 }
 
-exports.updateTable = async ( req, res) => {
+exports.updateTable = async(req, res) => {}
+
+exports.tablesList = async(req, res) => {
+
+    Table.find({ "status": 'free' })
+        .then(function(tables) {
+            res.send(tables);
+        });
+}
+
+exports.getById = async(req, res) => { 
+    const id = req.params.id;
+
+    Table.find({_id : id}).then(function (table) {
+        res.status(200).json(table)
+    })
 }

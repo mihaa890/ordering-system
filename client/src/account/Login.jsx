@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import './Login.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { STORAGE_KEYS } from '../utils/constants';
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
 
+import './Login.css';
+import { NavbarComponent } from '../components/Navbar';
+import { useLogout } from '../Hooks/useLogout';
+import { useAuth } from '../Hooks/useAuth';
 
 
 function Login() {
@@ -30,56 +33,57 @@ function Login() {
     setUser((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-    }));    
+    }));
 
   }
 
-
   const onSubmit = async () => {
-    await fetch('http://localhost:3001/api/login', {
+    const res = await fetch('http://localhost:3001/api/login', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
       body: JSON.stringify(user),
+
     })
-      .then((res) => {
-        if (res.status === 200) {
-          const _password = bcrypt.hashSync(user.password,10)
-          localStorage.setItem(STORAGE_KEYS.USER_KEY, JSON.stringify({email : user.email})) 
-          navigate('/')
-          setMessage({
-            type: "SUCCESS",
-            message: `Successful login`
-          });
+    const json = await res.json()
+    console.log(res)
+    if (res.status === 200) {
+      const _password = bcrypt.hashSync(user.password, 10)
+      localStorage.setItem(STORAGE_KEYS.TOKEN_KEY, JSON.stringify(json.token))
+      navigate('/')
+      setMessage({
+        type: "SUCCESS",
+        message: json.message,
+      });
 
-        }
-        else if (res.status === 404) {
-          setMessage({
-            type: "ERROR",
-            message: `User does not exists.`
-          })
-        }
-        else {
-          if (res.status === 400) {
-            setMessage({
-              type: "ERROR",
-              message: `Invalid Credentials`
-            });
-          }
-        }
-
+    }
+    else if (res.status === 404) {
+      setMessage({
+        type: "ERROR",
+        message: json.message
       })
+    }
+    else {
+      if (res.status === 400) {
+        setMessage({
+          type: "ERROR",
+          message: json.message
+        });
+      }
+    }
+
+
   };
 
-  return (
+  return ( <div> <NavbarComponent useAuth={useAuth} onLogout={useLogout} />
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ errors, touched, isSubmitting }) => (
-        <div className="container">
+        <div className="container_login">
           <Form>
-            <h3 className="card-header">Login</h3>
-            <div className="card-body">
+            <h3 className="card-header_login">Login</h3>
+            <div className="card-body_login">
               <div className="form-group">
                 <label>Email</label>
                 <Field name="email" type="text" value={user.email} className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} onChange={handleStateChange} />
@@ -113,6 +117,7 @@ function Login() {
         </div>
       )}
     </Formik>
+    </div>
 
   )
 }

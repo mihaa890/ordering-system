@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import './Register.css';
 import { useState } from "react";
+import { NavbarComponent } from '../components/Navbar';
+import { useLogout } from '../Hooks/useLogout';
+import { useAuth } from '../Hooks/useAuth';
+
+import './Register.css';
+
 
 function Register({ history }) {
     const initialValues = {
@@ -29,20 +33,6 @@ function Register({ history }) {
         }));
       }
 
-    
-
-    // const validationSchema = Yup.object().shape({
-    //     Name: Yup.string()
-    //         .required('Name is required'),
-    //     email: Yup.string()
-    //         .email('Email is invalid')
-    //         .required('Email is required'),
-    //     password: Yup.string()
-    //         .min(6, 'Password must be at least 6 characters')
-    //         .required('Password is required'),
-    // });
-
-  
     const onSubmit = async (e) => {
         
         e.preventDefault();
@@ -86,12 +76,14 @@ function Register({ history }) {
         };
 
 
-    return (
+    return (<div> 
+      <NavbarComponent useAuth={useAuth} onLogout={useLogout} />
         <Formik initialValues={initialValues}    onSubmit={onSubmit}>
             {({ errors, touched, isSubmitting }) => (
-                <div className='container'>
+                <div className='container_register'>
                 <Form  onSubmit={onSubmit}  >
-                    <h3 className="card-header">Register</h3>
+                    <h3 className="card-header_register">Register</h3>
+                    <div className="card-body_register">
                     <div className="form-group">
                             <label>Name</label>
                             <Field name="name" type="text" placeholder="Name" value={mailerState.name} className={'form-control' + (errors.name && touched.name ? ' is-invalid' : '')} onChange={handleStateChange}   />
@@ -121,11 +113,12 @@ function Register({ history }) {
                             </button>
                             <Link to="/login" className="btn btn-link">Cancel</Link>
                         </div>
-                    
+                        </div>
                 </Form>
                 </div>
             )}
         </Formik>
+        </div>
     )
 }
 

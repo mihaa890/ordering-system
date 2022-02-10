@@ -1,0 +1,32 @@
+    .container_cards {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0.5rem;
+        margin-top:2rem
+  }
+    
+    .card-body_menu,
+    .card-body_busy,
+    .card-body_free {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid rgb(223, 223, 223);
+        border-radius: 1rem;
+        height: 10rem;
+        margin-left: 4rem;
+        box-sizing: border-box;
+        padding: 1rem;
+    }
+    
+    .btn-container_menu,
+    .btn-container_busy,
+    .btn-container_free {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 7rem;
+        margin-top: 3rem;
+        margin-left: 10rem;
+    }

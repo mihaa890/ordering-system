@@ -25,7 +25,6 @@ exports.signup = async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: encryptedPassword,
-      role : req.body.role,
     }).save();
 
     const email = req.body.email;
@@ -122,12 +121,10 @@ exports.login = async (req, res) => {
       );
 
       user.token = token;
-      const role = user.role
-
+     
       res.status(200).send({
         message: "Successful login",
         token, 
-        role
       })
     }
     else {
@@ -210,4 +207,11 @@ exports.usersList = async function(req, res){
     res.send(users);
     });
 
+}
+
+exports.userById = async function(req, res) {
+
+  User.findById({}).then(function (user){
+    res.send(user);
+  });
 }

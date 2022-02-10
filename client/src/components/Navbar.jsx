@@ -6,13 +6,14 @@ import {AiOutlineHome,AiOutlineLock} from 'react-icons/ai';
 import {FiLogOut} from 'react-icons/fi';
 import { GiMeal } from 'react-icons/gi';
 
-export const NavbarComponent = ({user, onLogout}) => {
+export const NavbarComponent = ({useAuth, onLogout}) => {
+    const user = useAuth();
 
     return(
         <div>
-           <Navbar bg="light" variant="light">
-                <Navbar.Brand href="/">Navbar</Navbar.Brand>
-                <Nav className="me-auto">
+           <Navbar bg="dark" variant="dark">
+                <Navbar.Brand className="navbar navbar-dark bg-dark" href="/">Navbar</Navbar.Brand>
+                <Nav className="navbar navbar-dark bg-dark">
                 <Nav.Link href="/">Home <AiOutlineHome/></Nav.Link>
                 {!user && <React.Fragment>
                     <Nav.Link href="/login">Login <FiLogIn/></Nav.Link>
