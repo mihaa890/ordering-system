@@ -18,13 +18,12 @@ const FreeTables = () => {
 
     const token = localStorage.getItem(STORAGE_KEYS.TOKEN_KEY).replace(/"/g, '')
     const isTokenValid = useTokenValidator(token)
-    
+
 
     const config = {
         headers: { Authorization: `Bearer ${token}` }
     };
-
-
+    
     useEffect(() => {
         async function fetchData() {
             const response = await fetch("/api/freeTables", config, isTokenValid)
@@ -32,14 +31,17 @@ const FreeTables = () => {
             setData(data)
             setInterval(() => {
                 setLoading(false)
-            }, 3000);
-        }
-        if (!isTokenValid) {
-            navigate('/')
+            }, 1000);
+            if (!isTokenValid) {
+                navigate('/')
+            }
         }
         fetchData();
     }, [isTokenValid, navigate]);
 
+    const handleClick = (_id) => {
+        navigate(`/order/${_id}`)
+    }
 
     return (isLoading ? <div className="spinner"><BallTriangle
         color="#00BFFF" height={100} width={100}
@@ -60,20 +62,16 @@ const FreeTables = () => {
                 <tbody> {data.map(table => <tr key={table._id}>
                     <td>{table.tableIdentifier}</td>
                     <td>{table.capacity}</td>
-                    <td><a href="/order">
-                        <button className="btn btn-primary">Order</button>
-                    </a>
+                    <td>
+                        <button className="btn btn-primary" onClick={() => handleClick(table._id)}> Order </button>
                     </td>
                 </tr>)}
                 </tbody>
             </table>
-            : <span>No data</span>
+            : <span>No data </span>
         }
     </div>
-
     )
-
-
 }
 
 

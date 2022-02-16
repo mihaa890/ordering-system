@@ -20,11 +20,11 @@ const getTotalPrice = async (req, res) => {
         .map(item => ({
             price: item.price * item.qty
         }))
-        .reduce((previous, current) => ({
+        const productsPrice = products.length > 0 ? products.reduce((previous, current) => ({
             totalPrice: previous.price + current.price
-        }))
-
-    return products.totalPrice;
+        })) : 0
+        
+   return productsPrice.totalPrice
 }
 
 module.exports = getTotalPrice;

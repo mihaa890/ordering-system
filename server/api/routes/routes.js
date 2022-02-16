@@ -20,14 +20,15 @@ router.get('/userById',validateToken, UserController.userById )
 router.post('/createTable', validateToken, TableController.createTable);
 // router.put('/updateTable', validateToken , TableController.updateTable);
 router.get('/freeTables',validateToken, TableController.tablesList);
-router.get('/getTableById/:id', validateToken, TableController.getById);
+router.get('/getTableById/:id', TableController.getById);
 
 //order
-router.post('/order', validateToken, OrderController.order)
+router.post('/order', validateToken, OrderController.order);
+router.get('/orderById/:id', validateToken, OrderController.getOrderById);
 
 //menu
 router.post('/createMenu', validateToken, MenuController.createMenu)
 router.get('/getAll', validateToken, MenuController.getAll)
-router.get('/getItemById/:id', validateToken, MenuController.getById)
+router.get('/getItemById/', validateToken, MenuController.getById)
 
 module.exports = router;

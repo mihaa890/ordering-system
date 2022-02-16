@@ -13,6 +13,7 @@ import { ResetPassword } from './account/ResetPassword';
 import { ForgotPassword } from './account/ForgotPassword';
 import { FreeTables } from './components/FreeTables';
 import { Order } from './components/Order';
+import {OrderingSystem } from './components/OrderingSystem';
 
 class App extends Component {
 
@@ -28,7 +29,8 @@ class App extends Component {
             <Route path='/reset-password/:token' exact={true} element={ <ResetPassword/> }/>
             <Route path='/tables' exact={true} element={ <RequireAuth> <Tables/> </RequireAuth> } /> 
             <Route path='/freeTables' exact={true} element={ <RequireAuth><FreeTables/></RequireAuth> }/>
-            <Route path='/order' exact={true} element={<RequireAuth><Order/></RequireAuth>}/>
+            <Route path='/order/:id' exact={true} element={<RequireAuth><Order/></RequireAuth>}/>
+            <Route path='/getOrder/:id' exact={true} element={<RequireAuth> <OrderingSystem/> </RequireAuth>}/>
 
         </Routes>
         </BrowserRouter>

@@ -24,9 +24,10 @@ exports.getAll = async(req, res) => {
 }
 
 exports.getById = async(req, res) => {
-    const id = req.params.id; 
-        Menu.find({_id : id }).then(function (item){
-            res.status(200).json(item)
-        })
+    const ids = req.query.ids.split(',');
+
+    Menu.find({ '_id': { $in: ids } }).then(function (items){
+        res.status(200).json(items)
+    })
 }
 

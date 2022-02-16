@@ -1,0 +1,31 @@
+.input-label{
+    padding: 1rem;
+    font-size: 18px
+}
+.order{
+    border : 1px solid rgb(233, 231, 231);
+    margin-top:1rem;
+    margin-left:1rem;
+    margin-right:1rem;
+    width: auto;
+}
+
+.btn_order{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+   
+}
+.button{
+display: flex;
+justify-content: flex-end;
+margin-right: 1rem;
+margin-bottom: 1rem;
+
+}
+.button svg {
+    margin-left:0.5rem
+
+}
