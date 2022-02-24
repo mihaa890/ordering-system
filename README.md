@@ -7,7 +7,7 @@ This is an application model for managing a restaurant.
 
 # Getting Started
 
-To install the application run the following commands: 
+To install the application run the following command: 
 <br>
 `git clone https://github.com/mihaa890/ordering-system.git` 
 <br>
