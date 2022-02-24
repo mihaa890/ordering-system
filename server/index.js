@@ -3,8 +3,9 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const MongoDb = require("./mongo-connection")
+const Config = require('./services/config');
 
-const PORT = 3001;
+const config = Config.load()
 const app = express();
 
 app.use(cors());
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
 });
 app.use('/api', require('./api/routes/routes.js'));
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+app.listen(config.server.port, () => {
+  console.log(`Server listening on ${config.server.port}`);
 });
 
