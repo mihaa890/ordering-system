@@ -1,0 +1,17 @@
+.form-control_menu {
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+.add-menu-container{
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+
+}

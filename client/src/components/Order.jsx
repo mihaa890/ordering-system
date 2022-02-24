@@ -22,7 +22,7 @@ const Order = () => {
     const params = useParams();
     const navigate = useNavigate();
 
-    
+
     useEffect(() => {
         async function getAllItems() {
             const res = await fetch("/api/getAll", config, isTokenValid)
@@ -32,6 +32,7 @@ const Order = () => {
                     id: item._id,
                     name: item.product.name,
                     price: item.product.price,
+                    qty: item.product.qty,
                     checked: false
                 }
 
@@ -41,11 +42,12 @@ const Order = () => {
 
         getAllItems()
 
-    }, []);
+    }, [isTokenValid]);
+
 
     const onSubmit = async () => {
 
-       const response =  await fetch('http://localhost:3001/api/order', {
+        const response = await fetch('http://localhost:3001/api/order', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -53,11 +55,7 @@ const Order = () => {
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
-                orderItems: [
-                    {
-                        menuItems: items.filter(item => item.checked).map(item => item.id)
-                    }
-                ],
+                orderItems: items.filter(item => item.checked),
                 table: params.id,
             })
         })
@@ -74,9 +72,24 @@ const Order = () => {
             }
         })
         setItems(updatedItems)
-        
+
     }
 
+
+    const updateQty = (e, value) => {
+        const id = e.target.name
+        const _updatedItems = items.map(item => {
+            if (item.qty <= 1 && value === -1) {
+                return item
+            }
+            return {
+                ...item,
+                qty: item.id === id ? item.qty + value : item.qty
+            }
+        })
+        setItems(_updatedItems)
+
+    }
 
     return <div>
         <NavbarComponent
@@ -84,21 +97,31 @@ const Order = () => {
             onLogout={useLogout} />
         <div className="order">
             <div>
+                <div> {items && items.length && items.map(item => {
+                    return <div key={item.id}>
+                        <label className="input-label">
+                            <input
+                                name={item.name}
+                                type="checkbox"
+                                checked={item.checked}
+                                onChange={handleSelect}
+                            />
+                            {' '}
+                            {item.qty}
+                            {' '}
+                            {item.name}
+                            {' '}
+                            {item.price + '$'}
 
-                <div> {items && items.length && items.map(item => <div key={item._id}>
-                    <label className="input-label">
-                        <input
-                            name={item.name}
-                            type="checkbox"
-                            checked={item.checked}
-                            onChange={handleSelect}
-                        />{' '}
-                        {item.name}
-                        {item.price}
 
-                    </label>
-                </div>
-                )}
+                        </label>
+                        <button className="btn btn-primary" name={item.id} onClick={e => updateQty(e, 1)}>+</button>
+                        {' '}
+                        <button className="btn btn-danger" name={item.id} onClick={e => updateQty(e, -1)}>-</button>
+
+                    </div>
+                })
+                }
                 </div>
                 <div className="button">
                     <button type="button" className="btn_order btn-primary" onClick={onSubmit}> Order <BsCart3 /> </button>

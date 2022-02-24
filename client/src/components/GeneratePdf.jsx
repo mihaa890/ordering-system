@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         paddingRight: 8,
     },
-    productQty : {
+    productQty: {
         width: '25%',
         borderRightColor: '#3778C2',
         borderRightWidth: 1,
@@ -116,27 +116,27 @@ const GeneratePdf = ({ props }) => {
                     Quantity
                 </Text>
                 <Text style={styles.totalPrice}>
-                    Price 
+                    Price
                 </Text>
 
             </View>
             {
-                props.menuItems.map(item => {
-                    return <View style={styles.row}>
+                props[0].orderItems.map(item => {
+                    return <div key={item._id}><View style={styles.row}>
                         <Text style={styles.productName}>
 
-                            {item.product.name}
+                            {item.name}
                         </Text>
                         <Text style={styles.productPrice}>
-                            {item.product.price + '$'}
+                            {item.price + '$'}
                         </Text>
                         <Text style={styles.productQty}>
-                            {item.product.qty}
+                            {item.qty}
                         </Text>
                         <Text style={styles.totalPrice}>
-                            {item.product.qty * item.product.price + '$'}
-                            </Text>
-                    </View>
+                            {item.qty * item.price + '$'}
+                        </Text>
+                    </View></div>
                 })
 
             }
@@ -146,7 +146,7 @@ const GeneratePdf = ({ props }) => {
                 <Text style={styles.productPrice}>
                 </Text>
                 <Text style={styles.productTotalPrice}>
-                    Total : {props.order[0].totalPrice + '$'}
+                    Total : {props[0].totalPrice + '$'}
                 </Text>
             </View>
         </Page>

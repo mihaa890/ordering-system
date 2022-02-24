@@ -3,7 +3,6 @@ import { useAuth } from '../Hooks/useAuth';
 import { useLogout } from '../Hooks/useLogout';
 import { GiMeal } from "react-icons/gi";
 import { GiHotMeal } from "react-icons/gi"
-import { MdNoMealsOuline } from "react-icons/md";
 
 import './Tables.css';
 
@@ -30,20 +29,6 @@ const Tables = () => {
                                 </div>
 
                         </div>
-                        <div className="card-body_busy">
-                                <div className="title">
-
-                                        <h3>
-                                                Busy <MdNoMealsOuline />
-                                        </h3>
-                                </div>
-                                <div className="btn-container_busy">
-                                        <a href="/updateTable" >
-                                                <button className="btn btn-danger" >Edit status</button>
-                                        </a>
-                                </div>
-
-                        </div>
                         <div className="card-body_menu">
                                 <div className="title">
 
@@ -53,7 +38,7 @@ const Tables = () => {
                                 </div>
                                 <div className="btn-container_menu">
                                         <a href="/menu" >
-                                                <button className="btn btn-primary" >View menu</button></a>
+                                                <button className="btn btn-primary" >Add menu</button></a>
                                 </div>
 
                         </div>

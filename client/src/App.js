@@ -14,6 +14,7 @@ import { ForgotPassword } from './account/ForgotPassword';
 import { FreeTables } from './components/FreeTables';
 import { Order } from './components/Order';
 import {OrderingSystem } from './components/OrderingSystem';
+import { Menu } from './components/Menu';
 
 class App extends Component {
 
@@ -31,6 +32,9 @@ class App extends Component {
             <Route path='/freeTables' exact={true} element={ <RequireAuth><FreeTables/></RequireAuth> }/>
             <Route path='/order/:id' exact={true} element={<RequireAuth><Order/></RequireAuth>}/>
             <Route path='/getOrder/:id' exact={true} element={<RequireAuth> <OrderingSystem/> </RequireAuth>}/>
+            <Route path='/menu' exact={true} element={<RequireAuth><Menu/></RequireAuth>}/>
+
+
 
         </Routes>
         </BrowserRouter>

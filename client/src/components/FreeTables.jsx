@@ -23,13 +23,13 @@ const FreeTables = () => {
     const config = {
         headers: { Authorization: `Bearer ${token}` }
     };
-    
+
     useEffect(() => {
         async function fetchData() {
             const response = await fetch("/api/freeTables", config, isTokenValid)
             const data = await response.json();
             setData(data)
-            setInterval(() => {
+            setTimeout(() => {
                 setLoading(false)
             }, 1000);
             if (!isTokenValid) {
@@ -41,6 +41,7 @@ const FreeTables = () => {
 
     const handleClick = (_id) => {
         navigate(`/order/${_id}`)
+
     }
 
     return (isLoading ? <div className="spinner"><BallTriangle
@@ -59,7 +60,7 @@ const FreeTables = () => {
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody> {data.map(table => <tr key={table._id}>
+                <tbody>{data.map(table => <tr key={table._id}>
                     <td>{table.tableIdentifier}</td>
                     <td>{table.capacity}</td>
                     <td>

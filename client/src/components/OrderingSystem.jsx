@@ -30,23 +30,13 @@ const OrderingSystem = () => {
 
 
     useEffect(() => {
-        const getItemById = async (order) => {
-            const ids = order[0].orderItems[0].menuItems
-            const response = await fetch(`/api/getItemById/?ids=${ids}`, config)
-            const menuItemsData = await response.json()
-            return menuItemsData
-        }
-        async function getOrderById() {
+        const getOrderById = async () => {
+
             const _id = params.id
             const response = await fetch(`/api/orderById/${_id}`, config)
             const order = await response.json();
-            const menuItemsData = await getItemById(order)
 
-            setState({
-                menuItems: menuItemsData,
-                order
-            })
-
+            setState(order)
 
         }
         setTimeout(() => {
@@ -69,7 +59,7 @@ const OrderingSystem = () => {
         {isOnPdfView && <BlobProvider document={<GeneratePdf props={state} />}>
             {({ url }) => (
                 <a href={url} target="_blank" rel="noreferrer">
-                    Open the invoice in a new tab.
+                    <p className="invoice-title"> Open the invoice in a new tab.</p>
                 </a>
             )}
         </BlobProvider>}

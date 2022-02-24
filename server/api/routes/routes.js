@@ -11,7 +11,7 @@ const { validateToken } = require('../../middleware/middleware');
 router.post('/signup', UserController.signup);
 router.get('/verify/:token', UserController.verify);
 router.post('/login', UserController.login);
-router.put('/forgot-password',validateToken, UserController.forgotPass);
+router.put('/forgot-password', UserController.forgotPass);
 router.put('/reset-password',validateToken, UserController.resetPassword);
 router.get('/usersList',validateToken, UserController.usersList);
 router.get('/userById',validateToken, UserController.userById )
@@ -30,5 +30,6 @@ router.get('/orderById/:id', validateToken, OrderController.getOrderById);
 router.post('/createMenu', validateToken, MenuController.createMenu)
 router.get('/getAll', validateToken, MenuController.getAll)
 router.get('/getItemById/', validateToken, MenuController.getById)
+router.put('/updateMenu/:id', validateToken, MenuController.updateMenu)
 
 module.exports = router;

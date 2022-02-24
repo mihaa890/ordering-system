@@ -6,7 +6,7 @@ exports.order = async (req, res) => {
         order = await new Order({
             orderItems: req.body.orderItems,
             table : req.body.table,
-            totalPrice : await getTotalPrice(req, res)   
+            totalPrice : await getTotalPrice(req, res)
         }).save();
 
         res.status(200).send(order)
