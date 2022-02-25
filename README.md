@@ -32,7 +32,7 @@ email:
   token_key: 'RANDOM_STRING'
   password_reset_key: 'RANDOM_STRING'
 ```
-Don't forget to enable less secure apps to access Gmail.
+Don't forget to enable less secure apps on your google account to allow nodemailer to use it as a sender.
 You can enable it by clicking on <a href="https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4N2GVSjl3kWvjbKeLhKGltd769y0XZMsuK5wQAGWxHY-tQPE36DOr9ZposEV4PSMv3xU7XjdombAkozTqL8_Aq4EYebLA">Less secure app access</a> 
 
 To start the client in the root path run this:
