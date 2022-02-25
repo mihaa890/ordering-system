@@ -19,6 +19,7 @@
 .env.production.local
 config.dev.yml
 config.prod.yml
+mongo-volume
 
 npm-debug.log*
 yarn-debug.log*
