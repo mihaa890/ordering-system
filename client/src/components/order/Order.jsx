@@ -1,11 +1,11 @@
-import { NavbarComponent } from "./Navbar"
-import { useAuth } from '../Hooks/useAuth';
-import { useLogout } from "../Hooks/useLogout";
+import { NavbarComponent } from "../navbar/Navbar"
+import { useAuth } from '../../Hooks/useAuth';
+import { useLogout } from "../../Hooks/useLogout";
 import { BsCart3 } from "react-icons/bs";
 import { useEffect } from "react";
 import { useState } from "react";
-import useTokenValidator from "../Hooks/useToken";
-import { STORAGE_KEYS } from "../utils/constants";
+import useTokenValidator from "../../Hooks/useToken";
+import { STORAGE_KEYS } from "../../utils/constants";
 import { useNavigate, useParams } from "react-router-dom";
 
 import "./Order.css"

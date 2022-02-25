@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { useState } from "react";
-import { NavbarComponent } from '../components/Navbar';
-import { useLogout } from '../Hooks/useLogout';
-import { useAuth } from '../Hooks/useAuth';
+import { NavbarComponent } from '../../components/navbar/Navbar';
+import { useLogout } from '../../Hooks/useLogout';
+import { useAuth } from '../../Hooks/useAuth';
 
 import './Register.css';
 

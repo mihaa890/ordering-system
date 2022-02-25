@@ -46,10 +46,14 @@ The client will be available at: `localhost:3000`
 
 If you want to use `Postman` first of all you need to register, then login and pass the access token in Headers. 
 <br>
-Key: `Authorization`
+key:` Authorization`  value:` Bearer token` 
 <br>
-Value: `Bearer token` 
-
+<br>
+To start the application with docker go to root path and run the command: 
+<br>
+`docker-compose up --build`
+<hr>
+This application is a personal project and is only for learning some technologies.
 
 
 

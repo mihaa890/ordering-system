@@ -3,7 +3,7 @@ const sendEmail = require("../../utils/email");
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const Config = require("../../services/config");
-const utils = require("../../utils/utils");
+const renderTemplates = require("../../utils/renderTemplates");
 
 const config = Config.load();
 
@@ -42,7 +42,7 @@ exports.signup = async (req, res) => {
 
     const url = `http://${config.email.base_url}:3001/api/verify/${jwtToken}`;
 
-    const confirmEmailOptions = utils.renderConfirmEmailTemplate(url);
+    const confirmEmailOptions = renderTemplates.renderConfirmEmailTemplate(url);
 
     await sendEmail(user.email, "Verify Email", confirmEmailOptions);
 
@@ -87,7 +87,7 @@ exports.verify = async (req, res) => {
 
     const path = `http://${config.email.base_url}:${config.email.port}/login`
 
-    utils.renderVerifyEmailTemplate(res, path)
+    renderTemplates.renderVerifyEmailTemplate(res, path)
 
   } catch (err) {
     return res.status(500).send(err);
@@ -158,7 +158,7 @@ exports.forgotPass = async (req, res) => {
 
     const url = `http://${config.email.base_url}:${config.email.port}/reset-password/${token}`;
 
-    const forgotPasswordOptions = utils.renderForgotPassTemplate(url);
+    const forgotPasswordOptions = renderTemplates.renderForgotPassTemplate(url);
 
     await sendEmail(user.email, "Reset Password", forgotPasswordOptions);
 

@@ -1,6 +1,5 @@
 const nodemailer = require("nodemailer");
 const Config = require('../services/config');
-const utils  = require("./utils")
 
 const config = Config.load()
 

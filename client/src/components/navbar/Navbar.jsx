@@ -1,6 +1,6 @@
 import React from 'react';
 import {Nav, Navbar} from 'react-bootstrap';
-import '../components/Navbar.css';
+import '../navbar/Navbar.css';
 import {FiLogIn} from 'react-icons/fi';
 import {AiOutlineHome,AiOutlineLock} from 'react-icons/ai';
 import {FiLogOut} from 'react-icons/fi';

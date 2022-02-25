@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, Image, StyleSheet } from '@react-pdf/renderer';
-import logo from '../assets/logo.jpg';
+import logo from '../../assets/logo.jpg';
 
 const styles = StyleSheet.create({
     page: {

@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import useTokenValidator from "../Hooks/useToken";
+import useTokenValidator from "../../Hooks/useToken";
 import { useEffect } from "react";
 import { Formik, Field, Form } from 'formik';
 import './ResetPassword.css'

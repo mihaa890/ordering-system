@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { STORAGE_KEYS } from '../utils/constants';
+import { STORAGE_KEYS } from '../../utils/constants';
 import bcrypt from 'bcryptjs';
 
 import './Login.css';
-import { NavbarComponent } from '../components/Navbar';
-import { useLogout } from '../Hooks/useLogout';
-import { useAuth } from '../Hooks/useAuth';
+import { NavbarComponent } from '../../components/navbar/Navbar';
+import { useLogout } from '../../Hooks/useLogout';
+import { useAuth } from '../../Hooks/useAuth';
 
 
 function Login() {

@@ -1,15 +1,15 @@
 import React from 'react';
 import { BlobProvider } from '@react-pdf/renderer';
 import { useEffect } from 'react';
-import { STORAGE_KEYS } from '../utils/constants';
-import useTokenValidator from '../Hooks/useToken';
-import { NavbarComponent } from './Navbar';
-import { useAuth } from '../Hooks/useAuth';
-import { useLogout } from '../Hooks/useLogout';
+import { STORAGE_KEYS } from '../../utils/constants';
+import useTokenValidator from '../../Hooks/useToken';
+import { NavbarComponent } from '../navbar/Navbar';
+import { useAuth } from '../../Hooks/useAuth';
+import { useLogout } from '../../Hooks/useLogout';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { BallTriangle } from 'react-loader-spinner'
-import GeneratePdf from './GeneratePdf';
+import GeneratePdf from '../pdf/GeneratePdf';
 
 import './OrderingSystem.css'
 

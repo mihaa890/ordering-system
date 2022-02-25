@@ -1,6 +1,6 @@
-import { NavbarComponent } from "./Navbar";
-import { useAuth } from '../Hooks/useAuth';
-import { useLogout } from '../Hooks/useLogout';
+import { NavbarComponent } from "../navbar/Navbar";
+import { useAuth } from '../../Hooks/useAuth';
+import { useLogout } from '../../Hooks/useLogout';
 import { GiMeal } from "react-icons/gi";
 import { GiHotMeal } from "react-icons/gi"
 

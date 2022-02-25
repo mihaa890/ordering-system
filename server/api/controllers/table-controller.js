@@ -14,9 +14,6 @@ exports.createTable = async(req, res) => {
         console.log(error)
     }
 }
-
-exports.updateTable = async(req, res) => {}
-
 exports.tablesList = async(req, res) => {
 
     Table.find({ "status": 'free' })

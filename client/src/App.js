@@ -4,17 +4,17 @@ import {Component} from 'react';
 import { BrowserRouter,
   Routes,
   Route } from 'react-router-dom';
-import {Login} from './account/Login';
-import {Register} from './account/Register';
-import {Home} from './components/Home';
-import {Tables} from './components/Tables'
+import {Login} from './account/login/Login';
+import {Register} from './account/register/Register';
+import {Home} from './components/home/Home';
+import {Tables} from './components/tables/Tables'
 import RequireAuth from './guard/RequireAuth';
-import { ResetPassword } from './account/ResetPassword';
-import { ForgotPassword } from './account/ForgotPassword';
-import { FreeTables } from './components/FreeTables';
-import { Order } from './components/Order';
-import {OrderingSystem } from './components/OrderingSystem';
-import { Menu } from './components/Menu';
+import { ResetPassword } from './account/reset-password/ResetPassword';
+import { ForgotPassword } from './account/forgot-password/ForgotPassword';
+import { FreeTables } from './components/tables/FreeTables';
+import { Order } from './components/order/Order';
+import {OrderingSystem } from './components/order/OrderingSystem';
+import { Menu } from './components/menu/Menu';
 
 class App extends Component {
 

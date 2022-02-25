@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useAuth } from "../Hooks/useAuth";
-import { useLogout } from "../Hooks/useLogout";
-import { NavbarComponent } from "./Navbar";
+import { useAuth } from "../../Hooks/useAuth";
+import { useLogout } from "../../Hooks/useLogout";
+import { NavbarComponent } from "../navbar/Navbar";
 import { BallTriangle } from 'react-loader-spinner'
-import { STORAGE_KEYS } from "../utils/constants";
-import useTokenValidator from "../Hooks/useToken";
+import { STORAGE_KEYS } from "../../utils/constants";
+import useTokenValidator from "../../Hooks/useToken";
 import { useNavigate } from "react-router-dom";
 
 import "./FreeTables.css"

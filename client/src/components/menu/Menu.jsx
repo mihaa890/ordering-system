@@ -1,8 +1,8 @@
-import { useLogout } from "../Hooks/useLogout";
-import { useAuth } from "../Hooks/useAuth";
-import { NavbarComponent } from "./Navbar"
+import { useLogout } from "../../Hooks/useLogout";
+import { useAuth } from "../../Hooks/useAuth";
+import { NavbarComponent } from "../navbar/Navbar"
 import { useState } from "react";
-import { STORAGE_KEYS } from "../utils/constants";
+import { STORAGE_KEYS } from "../../utils/constants";
 import { Formik , Form, Field } from 'formik';
 
 import './Menu.css'

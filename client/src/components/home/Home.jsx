@@ -1,8 +1,8 @@
 import { React } from 'react';
-import { NavbarComponent } from './Navbar';
-import {useAuth} from '../Hooks/useAuth';
-import {useLogout} from '../Hooks/useLogout'
-import { HomeCarousel } from './Carousel';
+import { NavbarComponent } from '../navbar/Navbar';
+import {useAuth} from '../../Hooks/useAuth';
+import {useLogout} from '../../Hooks/useLogout'
+import { HomeCarousel } from '../carousel/Carousel';
 
 function Home() {
     return (

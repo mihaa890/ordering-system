@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Formik, Form, Field } from 'formik';
-import '../account/ForgotPassword.css'
+import '../forgot-password/ForgotPassword.css'
 
 export const ForgotPassword = () => {
 
