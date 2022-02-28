@@ -16,6 +16,7 @@ import { Order } from './components/order/Order';
 import {OrderingSystem } from './components/order/OrderingSystem';
 import { Menu } from './components/menu/Menu';
 
+
 class App extends Component {
 
   render() {
@@ -29,7 +30,7 @@ class App extends Component {
             <Route path='/forgot-password' exact={true} element={<ForgotPassword/>} />
             <Route path='/reset-password/:token' exact={true} element={ <ResetPassword/> }/>
             <Route path='/tables' exact={true} element={ <RequireAuth> <Tables/> </RequireAuth> } /> 
-            <Route path='/freeTables' exact={true} element={ <RequireAuth><FreeTables/></RequireAuth> }/>
+            <Route path='/free' exact={true} element={ <RequireAuth><FreeTables/></RequireAuth> }/>
             <Route path='/order/:id' exact={true} element={<RequireAuth><Order/></RequireAuth>}/>
             <Route path='/getOrder/:id' exact={true} element={<RequireAuth> <OrderingSystem/> </RequireAuth>}/>
             <Route path='/menu' exact={true} element={<RequireAuth><Menu/></RequireAuth>}/>

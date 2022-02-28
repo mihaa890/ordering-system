@@ -19,7 +19,7 @@ router.get('/userById',validateToken, UserController.userById );
 
 //table
 router.post('/createTable', validateToken, TableController.createTable);
-router.get('/freeTables',validateToken, TableController.tablesList);
+router.get('/free-tables',validateToken, TableController.tablesList);
 router.get('/getTableById/:id', TableController.getById);
 
 //order

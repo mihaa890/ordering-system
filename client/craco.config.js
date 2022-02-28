@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 
 module.exports = {
+
   webpack: {
     configure: {
       resolve: {
@@ -19,6 +20,14 @@ module.exports = {
           process: "process/browser",
         }),
       ],
+    },
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        pathRewrite: { '^/api': '' },
+      },
     },
   },
 };

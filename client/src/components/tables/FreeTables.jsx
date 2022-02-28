@@ -26,7 +26,7 @@ const FreeTables = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch("/api/freeTables", config, isTokenValid)
+            const response = await fetch("/api/free-tables", config, isTokenValid)
             const data = await response.json();
             setData(data)
             setTimeout(() => {

@@ -5,7 +5,7 @@ const config = Config.load()
 
 
 const connectDb = async () => {
-    const mongoDB = 'mongodb://' + config.database.host + '/db';
+    const mongoDB = 'mongodb://' + config.db.host + '/db';
 
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}).then(connection => {
   console.log(`Connected to Mongo database "${connection.connections[0].name}"`)
